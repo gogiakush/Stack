@@ -18,7 +18,9 @@ function checkPlay() {
         document.querySelector('.play-button').style.cursor = 'default';
         document.querySelector('.play-button').innerHTML = counter;
         document.querySelector('.play-button').onclick = null;
-        startGame();
+        setTimeout(() => {
+            startGame();
+        });
     };
 }
 
@@ -27,23 +29,33 @@ function startGame() {
     document.querySelector('.blocks').appendChild(item);
     document.addEventListener("keydown", function (event) {
         if (event.keyCode == 32 && !gameOver) {
-            judgePlacement(counter);
-            if(!gameOver) {
-                let children = document.querySelector('.blocks').childNodes;
-                item.style.animationPlayState = 'paused';
-                counter++;
-                document.querySelector('.play-button').innerHTML = counter;
-                item = createItem();
-                document.querySelector('.blocks').appendChild(item);
-                if (document.querySelector('.blocks').offsetHeight >= document.querySelector('body').offsetHeight/2) {
-                    for(let i = 0; i < cutoff && i < children.length; i++) {
-                        let child = children[i];
-                        child.remove();
-                    }
+            cont();
+        }
+    });
+
+    document.addEventListener("click", function () {
+        if(!gameOver) {
+            cont();
+        }
+    });
+
+    function cont() {
+        judgePlacement(counter);
+        if (!gameOver) {
+            let children = document.querySelector('.blocks').childNodes;
+            item.style.animationPlayState = 'paused';
+            counter++;
+            document.querySelector('.play-button').innerHTML = counter;
+            item = createItem();
+            document.querySelector('.blocks').appendChild(item);
+            if (document.querySelector('.blocks').offsetHeight >= document.querySelector('body').offsetHeight / 2) {
+                for (let i = 0; i < cutoff && i < children.length; i++) {
+                    let child = children[i];
+                    child.remove();
                 }
             }
         }
-    });
+    }
 }
 
 function createItem() {
