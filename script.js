@@ -53,11 +53,14 @@ function createItem() {
     item.style.position = 'relative';
     item.style.width = `${newWidth}px`;
     item.style.animation = 'example 2s linear 0s infinite alternate'; 
+    item.style.backgroundColor = '#FC5B2F';
     if (counter >= 15) {
         item.style.animation = 'example 1.5s linear 0s infinite alternate'; 
+        item.style.backgroundColor = '#FF6800';
     }
     if (counter >= 25) {
         item.style.animation = 'example 1s linear 0s infinite alternate';
+        item.style.backgroundColor = '#FFC600';
     }
     return item;
 }

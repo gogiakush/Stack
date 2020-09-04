@@ -46,15 +46,14 @@ body {
 .initial-block {
     margin-right: auto;
     margin-left: auto;
-    width: 30%;
+    width: 40%;
     height: 20px;
-    background-color: rgb(252, 106, 48);
+    background-color: #FC5B2F;
 }
 
 .block {
     width: 30%;
     height: 20px;
-    background-color: rgb(252, 106, 48);
 }
 
 .game-over {
