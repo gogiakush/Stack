@@ -52,7 +52,13 @@ function createItem() {
     item.classList.add(`item${counter}`);
     item.style.position = 'relative';
     item.style.width = `${newWidth}px`;
-    item.style.animation = 'example 2s linear 0s infinite alternate';
+    item.style.animation = 'example 2s linear 0s infinite alternate'; 
+    if (counter >= 15) {
+        item.style.animation = 'example 1.5s linear 0s infinite alternate'; 
+    }
+    if (counter >= 25) {
+        item.style.animation = 'example 1s linear 0s infinite alternate';
+    }
     return item;
 }
 
